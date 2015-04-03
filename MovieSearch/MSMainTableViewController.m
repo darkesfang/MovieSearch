@@ -7,6 +7,9 @@
 //
 
 #import "MSMainTableViewController.h"
+#import "AFNetworking.h"
+#import "MSResultTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MSMainTableViewController ()
 
@@ -17,11 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.movies = [NSMutableArray new];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MSResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"MovieCell"];
+    self.tableView.rowHeight = 80.;
+    [self.tableView reloadData];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString *url = @"http://api.movies.io/movies/search?q=hobbit";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.movies = [responseObject objectForKey:@"movies"];
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +50,41 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.movies count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+     MSResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell" forIndexPath:indexPath];
+    NSDictionary *movie = [self.movies objectAtIndex:indexPath.row];
     
-    // Configure the cell...
+    cell.titleLabel.text = [movie objectForKey:@"title"];
+    cell.yearLabel.text = [NSString stringWithFormat:@"%@", [movie objectForKey:@"year"]];
+    cell.ratingLabel.text = [movie objectForKey:@"rating"];
+    
+    NSString *imageUrl = [[[movie objectForKey:@"poster"] objectForKey:@"urls"] objectForKey:@"w92"];
+    
+    NSURL *url = [NSURL URLWithString:imageUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    [cell.posterImage setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        cell.imageView.image = image;
+        [cell setNeedsLayout];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

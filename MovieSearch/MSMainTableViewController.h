@@ -10,4 +10,6 @@
 
 @interface MSMainTableViewController : UITableViewController
 
+@property (nonatomic) NSArray *movies;
+
 @end
