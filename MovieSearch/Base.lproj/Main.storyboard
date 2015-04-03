@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tIn-TR-y5P">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -13,31 +14,61 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="UA3-Qs-45B" kind="relationship" relationship="rootViewController" id="Msi-6C-sH5"/>
+                        <segue destination="vo1-ta-5WN" kind="relationship" relationship="rootViewController" id="rgA-cx-pxy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPz-MB-Xrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-430" y="370"/>
         </scene>
-        <!--Main Table View Controller-->
-        <scene sceneID="uKI-ae-Ui8">
+        <!--Main View Controller-->
+        <scene sceneID="DhY-da-CRe">
             <objects>
-                <tableViewController id="UA3-Qs-45B" customClass="MSMainTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="140" sectionHeaderHeight="22" sectionFooterHeight="22" id="4ii-Ud-C5a">
+                <viewController id="vo1-ta-5WN" customClass="MSMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UCp-YC-dJo"/>
+                        <viewControllerLayoutGuide type="bottom" id="ywF-Wa-CYK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ViE-bP-DNQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" text="hobbit" translatesAutoresizingMaskIntoConstraints="NO" id="0gx-hp-1rl">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vo1-ta-5WN" id="10a-0k-iwD"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BcS-6V-JDA">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vo1-ta-5WN" id="jwI-Ml-dRN"/>
+                                    <outlet property="delegate" destination="vo1-ta-5WN" id="Q1T-Pd-hRs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="UA3-Qs-45B" id="lof-yn-5BS"/>
-                            <outlet property="delegate" destination="UA3-Qs-45B" id="SeW-Vw-eK7"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="JnP-WM-B0o"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kFi-v1-s4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="BcS-6V-JDA" firstAttribute="top" secondItem="0gx-hp-1rl" secondAttribute="bottom" id="741-j4-Y4w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BcS-6V-JDA" secondAttribute="trailing" constant="-16" id="MIb-7z-lgR"/>
+                            <constraint firstItem="0gx-hp-1rl" firstAttribute="leading" secondItem="ViE-bP-DNQ" secondAttribute="leadingMargin" constant="-16" id="RkQ-vD-Oza"/>
+                            <constraint firstItem="ywF-Wa-CYK" firstAttribute="top" secondItem="BcS-6V-JDA" secondAttribute="bottom" id="fO0-ca-VMu"/>
+                            <constraint firstItem="BcS-6V-JDA" firstAttribute="leading" secondItem="ViE-bP-DNQ" secondAttribute="leadingMargin" constant="-16" id="k1u-oM-Y3f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0gx-hp-1rl" secondAttribute="trailing" constant="-16" id="vxE-zR-D1p"/>
+                            <constraint firstItem="0gx-hp-1rl" firstAttribute="top" secondItem="UCp-YC-dJo" secondAttribute="bottom" id="ybj-us-ml9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qsv-js-BsI"/>
+                    <connections>
+                        <outlet property="searchBar" destination="0gx-hp-1rl" id="yfv-b9-EEB"/>
+                        <outlet property="tableView" destination="BcS-6V-JDA" id="qZr-wa-93K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jS9-OU-agV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295" y="370"/>
+            <point key="canvasLocation" x="263" y="370"/>
         </scene>
     </scenes>
 </document>

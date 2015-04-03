@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-D7-qwS">
-                        <rect key="frame" x="74" y="57" width="104" height="21"/>
+                        <rect key="frame" x="74" y="50" width="104" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="104" id="3Ib-Xw-LKC"/>
                         </constraints>
@@ -37,26 +37,43 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-7K-z4i">
-                        <rect key="frame" x="212" y="57" width="100" height="21"/>
+                        <rect key="frame" x="277" y="50" width="35" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="fB8-E6-doq"/>
+                            <constraint firstAttribute="width" constant="35" id="fB8-E6-doq"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="yUe-gC-FSy">
+                        <rect key="frame" x="253" y="47" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="o3W-nW-CzU"/>
+                            <constraint firstAttribute="width" constant="24" id="qdw-JE-ydh"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="kXR-7K-z4i" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="5v1-Sw-6cJ"/>
                     <constraint firstItem="WyB-Np-GIb" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6V6-aw-Qbd"/>
+                    <constraint firstItem="Iyv-D7-qwS" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="6fN-eh-lJj"/>
                     <constraint firstItem="WyB-Np-GIb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="77u-MB-Ddf"/>
+                    <constraint firstItem="kXR-7K-z4i" firstAttribute="leading" secondItem="yUe-gC-FSy" secondAttribute="trailing" id="CpX-aU-b7E"/>
                     <constraint firstItem="Ab3-mm-KhB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="R15-Bh-gBO"/>
                     <constraint firstAttribute="centerY" secondItem="Ab3-mm-KhB" secondAttribute="centerY" id="Z5t-VG-pow"/>
                     <constraint firstItem="kXR-7K-z4i" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="cep-Ow-c7N"/>
+                    <constraint firstItem="yUe-gC-FSy" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="eKv-fm-bBj"/>
                     <constraint firstItem="kXR-7K-z4i" firstAttribute="top" secondItem="WyB-Np-GIb" secondAttribute="bottom" constant="8" id="eol-qD-D7O"/>
                     <constraint firstItem="Iyv-D7-qwS" firstAttribute="leading" secondItem="Ab3-mm-KhB" secondAttribute="trailing" constant="20" id="lsS-eR-gA8"/>
                     <constraint firstItem="Iyv-D7-qwS" firstAttribute="top" secondItem="WyB-Np-GIb" secondAttribute="bottom" constant="8" id="r9q-YB-SBL"/>
                     <constraint firstItem="WyB-Np-GIb" firstAttribute="leading" secondItem="Ab3-mm-KhB" secondAttribute="trailing" constant="20" id="tSl-wH-oBH"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="r9q-YB-SBL"/>
+                        <exclude reference="eol-qD-D7O"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="posterImage" destination="Ab3-mm-KhB" id="q8C-0q-Q8i"/>
@@ -64,7 +81,10 @@
                 <outlet property="titleLabel" destination="WyB-Np-GIb" id="Frm-wx-2AS"/>
                 <outlet property="yearLabel" destination="Iyv-D7-qwS" id="iLT-Tr-11S"/>
             </connections>
-            <point key="canvasLocation" x="302" y="422"/>
+            <point key="canvasLocation" x="302" y="414"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star-icon.png" width="32" height="32"/>
+    </resources>
 </document>
