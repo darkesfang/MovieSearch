@@ -14,7 +14,6 @@
 		26BAF8D31ACD58170080CECA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BAF8D21ACD58170080CECA /* Images.xcassets */; };
 		26BAF8D61ACD58170080CECA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BAF8D41ACD58170080CECA /* LaunchScreen.xib */; };
 		26BAF8E21ACD58170080CECA /* MovieSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BAF8E11ACD58170080CECA /* MovieSearchTests.m */; };
-		26BAF8ED1ACD5A430080CECA /* MSMovieResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BAF8EC1ACD5A430080CECA /* MSMovieResult.m */; };
 		26BAF8F11ACE39310080CECA /* MSResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BAF8EF1ACE39310080CECA /* MSResultTableViewCell.m */; };
 		26BAF8F21ACE39310080CECA /* MSResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BAF8F01ACE39310080CECA /* MSResultTableViewCell.xib */; };
 		26BAF8F51ACE3C200080CECA /* MSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BAF8F41ACE3C200080CECA /* MSMainViewController.m */; };
@@ -46,8 +45,6 @@
 		26BAF8DB1ACD58170080CECA /* MovieSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BAF8E01ACD58170080CECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26BAF8E11ACD58170080CECA /* MovieSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieSearchTests.m; sourceTree = "<group>"; };
-		26BAF8EB1ACD5A430080CECA /* MSMovieResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMovieResult.h; sourceTree = "<group>"; };
-		26BAF8EC1ACD5A430080CECA /* MSMovieResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMovieResult.m; sourceTree = "<group>"; };
 		26BAF8EE1ACE39310080CECA /* MSResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSResultTableViewCell.h; sourceTree = "<group>"; };
 		26BAF8EF1ACE39310080CECA /* MSResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSResultTableViewCell.m; sourceTree = "<group>"; };
 		26BAF8F01ACE39310080CECA /* MSResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSResultTableViewCell.xib; sourceTree = "<group>"; };
@@ -121,12 +118,10 @@
 		26BAF8C41ACD58170080CECA /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
-				26BAF8EB1ACD5A430080CECA /* MSMovieResult.h */,
-				26BAF8EC1ACD5A430080CECA /* MSMovieResult.m */,
-				26BAF8EE1ACE39310080CECA /* MSResultTableViewCell.h */,
-				26BAF8EF1ACE39310080CECA /* MSResultTableViewCell.m */,
 				26BAF8C91ACD58170080CECA /* AppDelegate.h */,
 				26BAF8CA1ACD58170080CECA /* AppDelegate.m */,
+				26BAF8EE1ACE39310080CECA /* MSResultTableViewCell.h */,
+				26BAF8EF1ACE39310080CECA /* MSResultTableViewCell.m */,
 				26BAF8F31ACE3C200080CECA /* MSMainViewController.h */,
 				26BAF8F41ACE3C200080CECA /* MSMainViewController.m */,
 				26BAF8C51ACD58170080CECA /* Supporting Files */,
@@ -304,7 +299,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26BAF8ED1ACD5A430080CECA /* MSMovieResult.m in Sources */,
 				26BAF8F51ACE3C200080CECA /* MSMainViewController.m in Sources */,
 				26BAF8CB1ACD58170080CECA /* AppDelegate.m in Sources */,
 				26BAF8F11ACE39310080CECA /* MSResultTableViewCell.m in Sources */,
